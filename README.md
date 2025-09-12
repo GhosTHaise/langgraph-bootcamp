@@ -8,8 +8,7 @@ Watch the full bootcamp session here:
 👉 [LangGraph Bootcamp on YouTube](https://www.youtube.com/watch?v=jGg_1h0qzaM)  
 
 ## 📂 What’s Inside
-- Example implementations from the bootcamp  
-- Step-by-step exercises  
+- Example implementations from the bootcamp    
 - Notes and resources to deepen your understanding  
 
 ## 🤝 Contributing
