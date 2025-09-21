@@ -4,7 +4,7 @@ A hands-on journey into building with [LangGraph](https://github.com/langchain-a
 This repository contains code and notes following the [LangGraph Bootcamp series](https://www.youtube.com/watch?v=jGg_1h0qzaM).  
 
 ## 📺 Video Reference
-Watch the full bootcamp session here:  
+Watch the full langgraph bootcamp session here:  
 👉 [LangGraph Bootcamp on YouTube](https://www.youtube.com/watch?v=jGg_1h0qzaM)  
 
 ## 📂 What’s Inside
