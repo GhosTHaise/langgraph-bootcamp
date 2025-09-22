@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "terminal.integrated.inheritEnv": false,
+    "files.autoSave": "afterDelay",
+    "python.languageServer": "Pylance"
+}
