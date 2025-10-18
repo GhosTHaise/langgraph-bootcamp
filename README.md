@@ -15,4 +15,4 @@ Watch the full langgraph bootcamp session here:
 Feel free to fork, open issues, or submit pull requests if you’d like to improve the materials.
 
 ## ⭐ Supports
-If you find this useful, give the repo a star and share it with others learning LangGraph!
+If you find this useful, give the repo a star and share it with others learning LangGraph! ❤️
