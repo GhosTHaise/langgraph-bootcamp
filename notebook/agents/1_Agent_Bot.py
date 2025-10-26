@@ -17,7 +17,8 @@ def process(state : AgentState) -> AgentState:
     response = llm.invoke(state["messages"])
     print(f"\nAI: {response.content}")
     return state
-    
+
+
 if __name__ == "__main__":
     graph = StateGraph(AgentState)
     graph.add_node("process", process)
