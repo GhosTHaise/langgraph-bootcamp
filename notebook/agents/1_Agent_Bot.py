@@ -28,7 +28,9 @@ if __name__ == "__main__":
     agent = graph.compile()
      
     user_input = input("Enter : ")
-    agent.invoke({"messages" : [HumanMessage(content=user_input)]})
+    while user_input != "exit":
+        agent.invoke({"messages" : [HumanMessage(content=user_input)]})
+        user_input = input("Enter : ")
      
     
     
