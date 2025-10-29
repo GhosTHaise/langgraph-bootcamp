@@ -1,0 +1,20 @@
+Your Conversation Log:
+You: hi
+AI: How can I help you today?
+
+You: How are you ?
+AI: I'm just a computer program, so I don't have feelings like humans do, but I'm functioning properly and ready to help you with any questions or tasks you may have. How about you? How's your day going so far?
+
+You: fine , thanks
+AI: It's always nice to have a quiet and fine day sometimes. Is there anything in particular you'd like to talk about or ask about, or are you just looking for some company?
+
+You: tell me a joke
+AI: Here's one:
+
+What do you call a fake noodle?
+
+(wait for it...)
+
+An impasta!
+
+End of Conversation
