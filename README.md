@@ -1,11 +1,12 @@
 
-
 # 🚀 LangGraph Bootcamp
 
 A **hands-on journey** into building intelligent, multi-step AI workflows with [LangGraph](https://github.com/langchain-ai/langgraph).
 This repository contains **guided examples**, **notes**, and **exercises** following the [LangGraph Bootcamp series](https://www.youtube.com/watch?v=jGg_1h0qzaM).
 
 LangGraph helps developers **design, visualize, and execute agentic systems** — structured graphs of interacting LLMs, tools, and memory. It’s part of the [LangChain](https://github.com/langchain-ai/langchain) ecosystem and focuses on **control, reliability, and debugging** for AI-driven applications.
+
+💡 This project uses [Groq](https://console.groq.com/keys) as the primary LLM backend for running LangGraph examples.
 
 ---
 
