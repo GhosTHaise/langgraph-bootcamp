@@ -16,3 +16,18 @@ load_dotenv()
 email = Annotated[str, "This has to be a valid email format!"]
 print(email.__metadata__)
 
+""" | Élément                      | Rôle principal                | Exemple rapide                     |
+| ---------------------------- | ----------------------------- | ---------------------------------- |
+| `TypedDict`                  | Dictionnaire typé             | `class User(TypedDict): name: str` |
+| `Annotated`                  | Métadonnées sur un type       | `Annotated[str, "user name"]`      |
+| `Sequence`                   | Liste ou tuple typé           | `Sequence[int]`                    |
+| `load_dotenv`                | Charger `.env`                | `load_dotenv()`                    |
+| `HumanMessage`               | Message humain                | `HumanMessage("Hello")`            |
+| `SystemMessage`              | Règles pour le LLM            | `SystemMessage("You are helpful")` |
+| `ToolMessage`                | Résultat d’un outil           | `ToolMessage("Done", "tool_1")`    |
+| `StateGraph`, `START`, `END` | Construire un graphe d’états  | `graph.add_edge(START, END)`       |
+| `ChatGroq`                   | LLM basé sur Groq             | `ChatGroq(model="mixtral-8x7b")`   |
+| `@tool`                      | Déclare un outil              | `@tool def add(a,b): return a+b`   |
+| `add_messages`               | Ajoute des messages à un état | `add_messages(history, [msg])`     |
+| `ToolNode`                   | Nœud prêt pour les outils     | `ToolNode(tools=[my_tool])`        |
+ """
