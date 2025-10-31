@@ -1,9 +1,8 @@
 from typing import TypedDict, Annotated , Sequence
 from dotenv import load_dotenv
-from langchain_core.messages import HumanMessage # The fondational class for all message types in LangGraph
+from langchain_core.messages import BaseMessage # The fondational class for all message types in LangGraph
 from langchain_core.messages import ToolMessage # Passes data black to LLM after it calls a tool such as the content and and the tool_call_id
 from langchain_core.messages import SystemMessage # Message for providing instructions to the LLM
-from langgraph.graph import StateGraph, START, END
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from langgraph.graph.message import add_messages
