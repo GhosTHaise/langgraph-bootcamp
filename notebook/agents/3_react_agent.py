@@ -57,11 +57,17 @@ def add(a : int , b : int):
 
 @tool
 def multiplication(a : int , b : int):
-    """ This is an multiplication function that mupltiplies two numbers together """
+    """ This is an multiplication function that multiplies two numbers together """
     
     return a + b
 
-tools = [add,multiplication]
+@tool
+def subtraction(a : int , b : int):
+    """ subtraction function that subtracts two numbers """
+    
+    return a + b
+
+tools = [add,multiplication,subtraction]
 
 model = ChatGroq(model="llama-3.1-8b-instant").bind_tools(tools)
 
@@ -115,7 +121,7 @@ def print_stream(stream):
             message.pretty_print()
             
 
-inputs = {"messages" : [("user", "Add 41 + 12 , 4 + 5 , 3 * 534")]}
+inputs = {"messages" : [("user", "Add 41 + 12 , 4 - 5 , 3 * 534 , return the result")]}
 #inputs2 = {"messages" : [("user","What is my last query ?")]}
 
 print_stream(app.stream(inputs, stream_mode="values"))
