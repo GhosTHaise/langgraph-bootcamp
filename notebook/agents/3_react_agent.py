@@ -121,7 +121,8 @@ def print_stream(stream):
             message.pretty_print()
             
 
-inputs = {"messages" : [("user", "Add 41 + 12 , 4 - 5 , 3 * 534 , return the result")]}
+#inputs = {"messages" : [("user", "Add 41 + 12 , 4 - 5 , 3 * 534 , return the result")]}
+inputs = {"messages" : [("user", "Add 41 + 12 then divide the result by 7 and return the result")]}
 #inputs2 = {"messages" : [("user","What is my last query ?")]}
 
 print_stream(app.stream(inputs, stream_mode="values"))
