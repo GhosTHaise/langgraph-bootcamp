@@ -14,3 +14,8 @@ from langchain_chroma import Chroma
 from langchain_core.tools import tool
 
 load_dotenv()
+
+llm = ChatGroq(model="llama-3.1-8b-instant",temperature=0)
+
+# Our Embedding Model - has to also be compatible with the LLM -> gemini-embedding-001
+embeddings = GoogleGenerativeAIEmbeddings(model="text-embedding-ada-002")
