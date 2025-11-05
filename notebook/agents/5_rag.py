@@ -19,3 +19,17 @@ llm = ChatGroq(model="llama-3.1-8b-instant",temperature=0)
 
 # Our Embedding Model - has to also be compatible with the LLM -> gemini-embedding-001
 embeddings = GoogleGenerativeAIEmbeddings(model="text-embedding-ada-002")
+
+pdf_path = "notebook/agents/pdf/GeForce-RTX-5070-12G-GAMING-TRIO-OC.pdf"
+
+if not os.path.exists(pdf_path):
+    raise FileNotFoundError(f"PDF file not found at {pdf_path}")
+
+pdf_loader = PyPDFLoader(pdf_path)
+
+try:
+    pages = pdf_loader.load()
+    print(f"PDF Loaded with {len(pages)} pages")
+except Exception as e:
+    print(f"Error loading PDF: {e}")
+    raise e
