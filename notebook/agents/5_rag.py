@@ -2,9 +2,8 @@ from dotenv import load_dotenv
 import os
 from langgraph.graph import StateGraph, END
 from typing import TypedDict, Annotated, Sequence
-from langchain_core.messages import BaseMessage, SystemMessage, HumanMessage, ToolMessage, AIMessage
-from langgraph.graph.message import add_messages
-
+from langchain_core.messages import BaseMessage, SystemMessage, HumanMessage, ToolMessage
+from operator import add as add_messages
 from langchain_groq import ChatGroq
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
@@ -92,7 +91,7 @@ tools = [retriever_tool]
 llm = llm.bind_tools(tools)
 
 class AgentState(TypedDict):
-    messages = Annotated[Sequence[BaseMessage], add_messages]
+    messages : Annotated[Sequence[BaseMessage], add_messages]
     
 def should_continue(state: AgentState):
     """Check if the last message contains tools calls"""
@@ -109,27 +108,19 @@ Please always cite the specific parts of the documents you use in your answers.
 
 tools_dict = {our_tool.name: our_tool for our_tool in tools} # Creating a dictionary of our tools
 
-def call_llm(state: AgentState) -> AgentState:
-    print(state)
-    messages = list(state.get("messages", []))
+def call_llm(state : AgentState) -> AgentState:
+    """ Function to call the LLM with the current state. """
+    messages = list(state["messages"])
     messages = [SystemMessage(content=system_prompt)] + messages
-    message = llm.invoke(messages)
-    return {"messages": [AIMessage(content=message.content)]}
+    message =  llm.invoke(messages)
+    return {"messages" : [message]}
 
 # Retriever Agent
 def take_action(state: AgentState) -> AgentState:
     """Execute tool calls from the LLM's response."""
-    print(state)
-    last_message = state.get("messages", [])[-1]
-    
-    # Vérifie si l'objet a bien des tool_calls
-    if not hasattr(last_message, "tool_calls") or not last_message.tool_calls:
-        print("No tool calls found. Skipping retriever_agent.")
-        return {"messages": []}
-    
-    tool_calls = last_message.tool_calls
+
+    tool_calls = state['messages'][-1].tool_calls
     results = []
-    
     for t in tool_calls:
         print(f"Calling Tool: {t['name']} with query: {t['args'].get('query', 'No query provided')}")
         
@@ -174,7 +165,7 @@ def running_agent():
             
         messages = [HumanMessage(content=user_input)] # converts back to a HumanMessage type
 
-        result = rag_agent.invoke({"messages" : messages})
+        result = rag_agent.invoke({"messages": messages})
         
         print("\n=== ANSWER ===")
         print(result['messages'][-1].content)
