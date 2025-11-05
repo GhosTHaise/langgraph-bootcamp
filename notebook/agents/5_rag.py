@@ -61,3 +61,32 @@ try:
 except Exception as e:
     print(f"Error creating Chroma DB: {e}")
     raise e
+
+
+# create a retriever
+retriever = vectorstore.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 5},
+)
+
+@tool
+def retriever_tool(query: str) -> str:
+    f"""
+        This tool searches and returns the information from {pdf_path} document.
+    """
+    
+    docs = retriever.invoke(query)
+    
+    if not docs:
+        return f"I found not relevant information in the {pdf_path} document."
+    
+    results = []
+    for i , doc in enumerate(docs):
+        results.append(f"Document {i+1}: {doc.page_content}")
+        
+    return "\n\n".join(results)
+
+tools = [retriever_tool]
+
+llm = llm.bind_tools(tools)
+
