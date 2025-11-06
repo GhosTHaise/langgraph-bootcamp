@@ -78,7 +78,7 @@ def retriever_tool(query: str) -> str:
     docs = retriever.invoke(query)
     
     if not docs:
-        return f"I found not relevant information in the {pdf_path} document."
+        return f"I do not found relevant information in the {pdf_path} document."
     
     results = []
     for i , doc in enumerate(docs):
@@ -97,6 +97,7 @@ def should_continue(state: AgentState):
     """Check if the last message contains tools calls"""
     
     result = state["messages"][-1]
+    print(state["messages"])
     return hasattr(result, "tool_calls") and len(result.tool_calls) > 0
 
 system_prompt = """
